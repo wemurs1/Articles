@@ -10,4 +10,8 @@
     <Folder Include="Enums/" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../Blocks.Domain/Blocks.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -2,7 +2,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Blocks.MediatR.Behaviors;
 using System.Reflection;
-using FluentValidation;
 using Submission.Application.Features.CreateArticle;
 
 namespace Submission.Application;

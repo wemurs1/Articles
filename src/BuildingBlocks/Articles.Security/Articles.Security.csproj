@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions/" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="12.1.1" />
+    <ProjectReference Include="../Articles.Abstractions/Articles.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>
