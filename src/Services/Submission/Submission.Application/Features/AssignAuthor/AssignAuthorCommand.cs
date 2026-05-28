@@ -1,6 +1,3 @@
-using Blocks.Core.FluentValidation;
-using Submission.Application.Features.Shared;
-
 namespace Submission.Application.Features.AssignAuthor;
 
 public record AssignAuthorCommand(int AuthorId, bool IsCorrespondingAuthor, HashSet<ContributionArea> ContributionAreas) : ArticleCommand

@@ -1,6 +1,3 @@
-using Blocks.Core.FluentValidation;
-using Submission.Application.Features.Shared;
-
 namespace Submission.Application.Features.CreateArticle;
 
 public record CreateArticleCommand(int JournalId, string Title, string Scope, ArticleType Type) : ArticleCommand

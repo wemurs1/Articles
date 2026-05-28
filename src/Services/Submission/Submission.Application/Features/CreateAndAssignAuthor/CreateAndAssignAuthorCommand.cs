@@ -1,6 +1,4 @@
 using Blocks.Core.Constraints;
-using Blocks.Core.FluentValidation;
-using Submission.Application.Features.Shared;
 
 namespace Submission.Application.Features.CreateAndAssignAuthor;
 

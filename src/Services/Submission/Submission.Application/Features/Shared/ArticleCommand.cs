@@ -1,5 +1,3 @@
-using Blocks.Core.FluentValidation;
-
 namespace Submission.Application.Features.Shared;
 
 public abstract record ArticleCommand<TActionType, TResponse> : IArticleAction<TActionType>, IRequest<TResponse> where TActionType : Enum

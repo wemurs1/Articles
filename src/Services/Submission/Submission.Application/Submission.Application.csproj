@@ -21,11 +21,14 @@
     <Folder Include="Features/CreateAndAssignAuthor/" />
     <Folder Include="Features/CreateArticle/" />
     <Folder Include="Features/Shared/" />
+    <Folder Include="Features/UploadFiles/" />
+    <Folder Include="Features/UploadFiles/UploadManuscriptFile/" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="12.1.1" />
     <PackageReference Include="MediatR" Version="14.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.10" />
   </ItemGroup>
 
 </Project>

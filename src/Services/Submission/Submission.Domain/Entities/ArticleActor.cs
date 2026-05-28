@@ -1,5 +1,3 @@
-using Articles.Abstractions.Enums;
-
 namespace Submission.Domain.Entities;
 
 public class ArticleActor

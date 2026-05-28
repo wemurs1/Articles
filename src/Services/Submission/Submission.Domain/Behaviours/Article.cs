@@ -1,4 +1,3 @@
-using Articles.Abstractions.Enums;
 using Blocks.Exceptions;
 
 namespace Submission.Domain.Entities;
