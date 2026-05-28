@@ -1,4 +1,3 @@
-using Blocks.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 
 namespace Submission.Application.Features.CreateArticle;

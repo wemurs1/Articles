@@ -1,5 +1,3 @@
-using Articles.Abstractions.Enums;
-using MediatR;
 using Submission.Application.Features.CreateArticle;
 
 namespace Submission.API.Endpoints;

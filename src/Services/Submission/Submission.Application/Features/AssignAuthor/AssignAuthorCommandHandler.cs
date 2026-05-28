@@ -1,5 +1,3 @@
-using Blocks.EntityFramework;
-
 namespace Submission.Application.Features.AssignAuthor;
 
 public class AssignAuthorCommandHandler(ArticleRepository _articleRepository) : IRequestHandler<AssignAuthorCommand, IdResponse>
