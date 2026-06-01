@@ -1,11 +1,14 @@
+using Blocks.Core.Cache;
+
 namespace Submission.Domain.Entities;
 
-public class AssetTypeDefinition: EnumEntity<AssetType>
+public partial class AssetTypeDefinition : EnumEntity<AssetType>, ICacheable
 {
-    public required byte MaxFileSizeMB { get; init; }
-
-    public int MaxFileSizeInBytes => (MaxFileSizeMB * 1024 * 1024);
-
-    public required string DefaultFileExtension { get; init; } = default!;
     public required FileExtensions AllowedFileExtensions { get; init; }
+    public required string DefaultFileExtension { get; init; } = default!;
+    public required byte MaxAssetCount { get; init; }
+    public required byte MaxFileSizeInMB{ get; init; }
+
+    public int MaxFileSizeInBytes => (MaxFileSizeInMB * 1024 * 1024);
+    public bool AllowsMultipleAssets => MaxAssetCount > 1;
 }

@@ -23,4 +23,17 @@ public partial class Article
 
         // todo create domain event
     }
+
+    public Asset CreateAsset(AssetTypeDefinition type)
+    {
+        var assetCount = _assets.Where(a => a.Type == type.Id).Count();
+
+        if (type.MaxAssetCount > assetCount - 1)
+            throw new DomainException($"The maximum number of files allowed for {type.Name.ToString()} was already reached");
+
+        var asset = Asset.Create(this, type);
+        _assets.Add(asset);
+
+        return asset;
+    }
 }
