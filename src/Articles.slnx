@@ -11,6 +11,7 @@
   <Folder Name="/Modules/" />
   <Folder Name="/Modules/FileStorage/">
     <Project Path="Modules/FileStorage/FileStorage.Contracts/FileStorage.Contracts.csproj" />
+    <Project Path="Modules/FileStorage/FileStorage.MongoGridFS/FileStorage.MongoGridFS.csproj" />
   </Folder>
   <Folder Name="/Services/" />
   <Folder Name="/Services/Submission/">

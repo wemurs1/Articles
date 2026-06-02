@@ -7,6 +7,7 @@ public static class EndpointRegistration
         CreateArticleEndpoint.Map(app);
         AssignAuthorEndpoint.Map(app);
         CreateAndAssignAuthorEndpoint.Map(app);
+        UploadFileManuscriptFileEndpoint.Map(app);
 
         return app;
     }

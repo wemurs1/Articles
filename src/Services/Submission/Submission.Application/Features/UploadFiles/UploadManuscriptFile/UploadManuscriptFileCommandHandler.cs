@@ -1,6 +1,9 @@
+using FileStorage.Contracts;
+
 namespace Submission.Application.Features.UploadFiles;
 
-public class UploadManuscriptFileCommandHandler(ArticleRepository _articleRepository, AssetTypeDefinitionRepository _assetTypeRepository)
+public class UploadManuscriptFileCommandHandler(
+    ArticleRepository _articleRepository, AssetTypeDefinitionRepository _assetTypeRepository, IFileService _fileService)
     : IRequestHandler<UploadManuscriptFileCommand, IdResponse>
 {
     public async Task<IdResponse> Handle(UploadManuscriptFileCommand command, CancellationToken cancellationToken)
@@ -14,9 +17,24 @@ public class UploadManuscriptFileCommandHandler(ArticleRepository _articleReposi
 
         if (asset is null) asset = article.CreateAsset(assetType);
 
-        // todo upload the file
+        var filePath = asset.GenerateStorageFilePath(command.File.FileName);
+        var uploadResponse = await _fileService.UploadFileAsync(filePath, command.File, overwrite: true, tags: new Dictionary<string, string>
+        {
+            {"entity", nameof(Asset)},
+            {"entityId", asset.Id.ToString()}
+        });
 
-        await _articleRepository.SaveChangesAsync();
+        try
+        {
+            asset.CreateFile(uploadResponse, assetType);
+
+            await _articleRepository.SaveChangesAsync();
+        }
+        catch (Exception)
+        {
+            await _fileService.TryDeleteFileAsync(uploadResponse.FileId);
+            throw;
+        }
 
         return new IdResponse(asset.Id);
     }

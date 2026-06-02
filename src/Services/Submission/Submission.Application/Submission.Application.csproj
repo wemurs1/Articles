@@ -11,6 +11,7 @@
     <ProjectReference Include="../../../BuildingBlocks/Blocks.EntityFramework/Blocks.EntityFramework.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.Exceptions/Blocks.Exceptions.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.MediatR/Blocks.MediatR.csproj" />
+    <ProjectReference Include="../../../Modules/FileStorage/FileStorage.Contracts/FileStorage.Contracts.csproj" />
     <ProjectReference Include="../Submission.Domain/Submission.Domain.csproj" />
     <ProjectReference Include="../Submission.Persistence/Submission.Persistence.csproj" />
   </ItemGroup>

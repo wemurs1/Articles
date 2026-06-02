@@ -13,6 +13,7 @@ public static class CreateAndAssignAuthorEndpoint
         })
         .RequireRoleAuthorization(Role.CORAUT)
         .WithName("CreateAndAssignAuthor")
+        .WithTags("Articles")
         .Produces<IdResponse>(StatusCodes.Status200OK)
         .ProducesProblem(StatusCodes.Status400BadRequest)
         .ProducesProblem(StatusCodes.Status404NotFound)
