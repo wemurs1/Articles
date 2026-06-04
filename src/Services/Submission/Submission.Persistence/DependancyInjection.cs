@@ -9,7 +9,7 @@ namespace Submission.Persistence;
 
 public static class DependancyInjection
 {
-    public static IServiceCollection AddPersisenceServices(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("Database");
 

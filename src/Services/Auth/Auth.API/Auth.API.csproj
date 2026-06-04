@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Features/" />
+    <Folder Include="Features/CreateUser/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../../BuildingBlocks/Articles.Abstractions/Articles.Abstractions.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Articles.Security/Articles.Security.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Blocks.AspNetCore/Blocks.AspNetCore.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Blocks.Exceptions/Blocks.Exceptions.csproj" />
+    <ProjectReference Include="../../../Modules/EmailService/EmailService.Smtp/EmailService.Smtp.csproj" />
+    <ProjectReference Include="../Auth.Application/Auth.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FastEndpoints" Version="8.1.0" />
+    <PackageReference Include="FastEndpoints.Swagger" Version="8.1.0" />
+    <PackageReference Include="Flurl.Http" Version="4.0.2" />
+  </ItemGroup>
+
+</Project>
