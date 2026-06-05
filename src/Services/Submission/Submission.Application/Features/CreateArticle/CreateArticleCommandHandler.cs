@@ -10,7 +10,7 @@ public class CreateArticleCommandHandler(Repository<Journal> _journalRepository)
 
         var article = journal.CreateArticle(command.Title, command.Type, command.Scope);
 
-        await AssignCurrentUserAsAuthor(article, command);
+        await AssignCurrentUserAsAuthor(article, command, cancellationToken);
 
         await _journalRepository.SaveChangesAsync(cancellationToken);
         return new IdResponse(article.Id);

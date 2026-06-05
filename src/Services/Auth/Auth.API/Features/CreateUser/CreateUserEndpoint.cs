@@ -1,8 +1,5 @@
 using Articles.Abstractions.Enums;
 using Auth.Domain.Events;
-using Auth.Domain.Users;
-using Blocks.Exceptions;
-using FastEndpoints;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 
@@ -27,7 +24,7 @@ public class CreateUserEndpoint(UserManager<User> _userManager) : Endpoint<Creat
         }
         var passwordResetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
 
-        await PublishAsync(new UserCreated(user, passwordResetToken));
+        await PublishAsync(new UserCreated(user, passwordResetToken), cancellation: ct);
 
         await Send.OkAsync(new CreateUserResponse(command.Email, user.Id, passwordResetToken), cancellation: ct);
     }

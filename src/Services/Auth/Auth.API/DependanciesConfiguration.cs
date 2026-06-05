@@ -1,9 +1,8 @@
 using System.Security.Claims;
 using Articles.Security;
-using Auth.Domain.Users;
 using Auth.Persistence;
+using Blocks.Core.Extensions;
 using EmailService.Smtp;
-using FastEndpoints;
 using FastEndpoints.Swagger;
 using Microsoft.AspNetCore.Identity;
 
@@ -13,7 +12,8 @@ public static class DependanciesConfiguration
 {
     public static IServiceCollection ConfigureApiOptions(this IServiceCollection services, IConfiguration configuration)
     {
-        // use it for configuring the options
+        services
+            .AddAndValidateOptions<JwtOptions>(configuration);
         return services;
     }
 

@@ -9,6 +9,6 @@ public class SetUserIdBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest
     {
         request.CreatedById = 1; // todo replace once security service is active
 
-        return await next();
+        return await next(cancellationToken);
     }
 }

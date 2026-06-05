@@ -9,7 +9,7 @@ public class AssignAuthorCommandHandler(ArticleRepository _articleRepository) : 
 
         article.AssignAuthor(author, command.ContributionAreas, command.IsCorrespondingAuthor);
 
-        await _articleRepository.SaveChangesAsync();
+        await _articleRepository.SaveChangesAsync(cancellationToken);
 
         return new IdResponse(article.Id);
     }

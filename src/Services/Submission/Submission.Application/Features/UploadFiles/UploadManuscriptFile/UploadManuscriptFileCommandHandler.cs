@@ -28,7 +28,7 @@ public class UploadManuscriptFileCommandHandler(
         {
             asset.CreateFile(uploadResponse, assetType);
 
-            await _articleRepository.SaveChangesAsync();
+            await _articleRepository.SaveChangesAsync(cancellationToken);
         }
         catch (Exception)
         {

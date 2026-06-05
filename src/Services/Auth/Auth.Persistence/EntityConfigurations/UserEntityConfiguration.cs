@@ -37,5 +37,6 @@ internal class UserEntityConfiguration : EntityConfiguration<User>
         builder.Property(e => e.PictureUrl).HasMaxLength(MaxLength.C2048);
 
         builder.HasMany(e => e.UserRoles).WithOne().HasForeignKey(e => e.UserId).OnDelete(DeleteBehavior.Cascade);
+        builder.HasMany(e => e.RefreshTokens).WithOne().HasForeignKey(e => e.UserId).OnDelete(DeleteBehavior.Cascade);
     }
 }

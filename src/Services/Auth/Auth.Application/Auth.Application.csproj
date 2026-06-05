@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="../../../BuildingBlocks/Articles.Security/Articles.Security.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Blocks.AspNetCore/Blocks.AspNetCore.csproj" />
     <ProjectReference Include="../Auth.Domain/Auth.Domain.csproj" />
     <ProjectReference Include="../Auth.Persistence/Auth.Persistence.csproj" />
   </ItemGroup>
