@@ -8,6 +8,7 @@
     <Project Path="BuildingBlocks/Blocks.EntityFramework/Blocks.EntityFramework.csproj" />
     <Project Path="BuildingBlocks/Blocks.Exceptions/Blocks.Exceptions.csproj" />
     <Project Path="BuildingBlocks/Blocks.MediatR/Blocks.MediatR.csproj" />
+    <Project Path="BuildingBlocks/Blocks.Redis/Blocks.Redis.csproj" />
   </Folder>
   <Folder Name="/Modules/" />
   <Folder Name="/Modules/EmailService/">
@@ -24,6 +25,11 @@
     <Project Path="Services/Auth/Auth.Application/Auth.Application.csproj" />
     <Project Path="Services/Auth/Auth.Domain/Auth.Domain.csproj" />
     <Project Path="Services/Auth/Auth.Persistence/Auth.Persistence.csproj" />
+  </Folder>
+  <Folder Name="/Services/Journals/">
+    <Project Path="Services/Journals/Journals.Api/Journals.Api.csproj" />
+    <Project Path="Services/Journals/Journals.Domain/Journals.Domain.csproj" />
+    <Project Path="Services/Journals/Journals.Persistence/Journals.Persistence.csproj" />
   </Folder>
   <Folder Name="/Services/Submission/">
     <Project Path="Services/Submission/Submission.API/Submission.API.csproj" />
