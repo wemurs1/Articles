@@ -15,6 +15,7 @@ public class Repository<TEntity> where TEntity : Entity
     public IRedisCollection<TEntity> Collection => _collection;
 
     public async Task<TEntity?> GetByIdAsync(int id) => await _collection.FindByIdAsync(id.ToString());
+    public TEntity? GetById(int id) => _collection.FindById(id.ToString());
     public async Task<IEnumerable<TEntity>> GetAllAsync(CancellationToken ct = default) => await _collection.ToListAsync(ct);
     public async Task AddAsync(TEntity entity)
     {

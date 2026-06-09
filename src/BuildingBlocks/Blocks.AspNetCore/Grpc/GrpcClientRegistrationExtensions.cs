@@ -1,9 +1,7 @@
-using Grpc.Core;
 using Grpc.Net.Client;
 using Microsoft.Extensions.DependencyInjection;
 // using Polly;
 using ProtoBuf.Grpc.Client;
-using ProtoBuf.Grpc.Configuration;
 
 namespace Blocks.AspNetCore.Grpc;
 

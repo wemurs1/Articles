@@ -6,11 +6,14 @@ namespace Journals.Domain.Journals;
 [Document(StorageType = StorageType.Json)]
 public class Journal : Entity
 {
-    [Indexed]
+    [Searchable]
     public required string Name { get; set; }
 
     [Indexed]
     public required string Abreviation { get; set; }
+
+    [Searchable]
+    public required string Description { get; set; }
     public required string ISSN { get; init; }
     public int ChiefEditorId { get; set; }
 

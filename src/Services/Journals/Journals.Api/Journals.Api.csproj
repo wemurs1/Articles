@@ -19,6 +19,8 @@
 
   <ItemGroup>
     <Folder Include="Features/Journals/Create/" />
+    <Folder Include="Features/Journals/Search/" />
+    <Folder Include="Features/Journals/_Shared/" />
   </ItemGroup>
 
   <ItemGroup>
