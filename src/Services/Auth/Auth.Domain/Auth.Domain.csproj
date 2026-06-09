@@ -8,11 +8,10 @@
 
   <ItemGroup>
     <Folder Include="Events/" />
+    <Folder Include="Persons/Behaviours/" />
     <Folder Include="Roles/" />
     <Folder Include="Users/" />
     <Folder Include="Users/Behaviours/" />
-    <Folder Include="Users/Enums/" />
-    <Folder Include="Users/ValueObjects/" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="../../../BuildingBlocks/Articles.Abstractions/Articles.Abstractions.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Articules.GrpcContracts/Articules.GrpcContracts.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.Domain/Blocks.Domain.csproj" />
   </ItemGroup>
 

@@ -1,7 +1,6 @@
 using Articles.Abstractions.Enums;
-using Auth.Domain.Users.Enums;
 
-namespace Auth.API.Features.CreateUser;
+namespace Auth.API.Features.Users.CreateUser;
 
 public class CreateUserCommand : IUserCreationInfo
 {

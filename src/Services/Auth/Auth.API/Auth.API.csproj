@@ -7,14 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features/" />
-    <Folder Include="Features/CreateUser/" />
-    <Folder Include="Features/Login/" />
+    <Folder Include="Features/Persons/" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="../../../BuildingBlocks/Articles.Abstractions/Articles.Abstractions.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Articles.Security/Articles.Security.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Articules.GrpcContracts/Articules.GrpcContracts.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.AspNetCore/Blocks.AspNetCore.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.Exceptions/Blocks.Exceptions.csproj" />
     <ProjectReference Include="../../../Modules/EmailService/EmailService.Smtp/EmailService.Smtp.csproj" />
@@ -25,6 +24,7 @@
     <PackageReference Include="FastEndpoints" Version="8.1.0" />
     <PackageReference Include="FastEndpoints.Swagger" Version="8.1.0" />
     <PackageReference Include="Flurl.Http" Version="4.0.2" />
+    <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.2.2" />
   </ItemGroup>
 
 </Project>

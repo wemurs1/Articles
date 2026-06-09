@@ -4,7 +4,7 @@ using EmailService.Contracts;
 using Flurl;
 using Microsoft.Extensions.Options;
 
-namespace Auth.API.Features.CreateUser;
+namespace Auth.API.Features.Users.CreateUser;
 
 public class SendConfirmationEmailOnUserCreatedHandler(
     IEmailService emailService, IHttpContextAccessor httpContextAccessor, IOptions<EmailOptions> emailOptions)
@@ -24,9 +24,9 @@ public class SendConfirmationEmailOnUserCreatedHandler(
 
         return new EmailMessage(
             Subject: "Your Account Has been Created - Set Your Password",
-            Content: new Content(ContentType.Html, string.Format(ConfirmationEmail, user.FullName, resetLink)),
+            Content: new Content(ContentType.Html, string.Format(ConfirmationEmail, user.Person.FullName, resetLink)),
             From: new EmailAddress("Articles", fromEmailAddess),
-            To: new List<EmailAddress> { new EmailAddress(user.FullName, user.Email!) }
+            To: new List<EmailAddress> { new EmailAddress(user.Person.FullName, user.Email!) }
         );
     }
 }

@@ -1,10 +1,13 @@
+using System.IO.Compression;
 using System.Security.Claims;
 using Articles.Security;
+using Auth.API.Features.Persons;
 using Auth.Persistence;
 using Blocks.Core.Extensions;
 using EmailService.Smtp;
 using FastEndpoints.Swagger;
 using Microsoft.AspNetCore.Identity;
+using ProtoBuf.Grpc.Server;
 
 namespace Auth.API;
 
@@ -29,6 +32,14 @@ public static class DependanciesConfiguration
             .AddAuthorization();
 
         services.AddSmtpEmailService(configuration);
+
+        services.AddSingleton<GrpcTypeAdapterConfig>();
+
+        services.AddCodeFirstGrpc(options =>
+        {
+            options.ResponseCompressionLevel = CompressionLevel.Fastest;
+            options.EnableDetailedErrors = true;
+        });
 
         return services;
     }

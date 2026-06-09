@@ -12,13 +12,7 @@ public partial class User
         {
             UserName = userInfo.Email,
             Email = userInfo.Email,
-            FirstName = userInfo.FirstName,
-            LastName = userInfo.LastName,
-            Gender = userInfo.Gender,
             PhoneNumber = userInfo.PhoneNumber,
-            PictureUrl = userInfo.PictureUrl,
-            Honourific = HonourificTitle.FromEnum(userInfo.Honourific!),
-            ProfessionalProfile = ProfessionalProfile.Create(userInfo.Position, userInfo.CompanyName, userInfo.Affiliation),
             _userRoles = userInfo.UserRoles.Select(UserRole.Create).ToList()
         };
 

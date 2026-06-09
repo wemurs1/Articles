@@ -1,4 +1,5 @@
 using Auth.API;
+using Auth.API.Features.Persons;
 using Auth.Application;
 using Auth.Persistence;
 using FastEndpoints.Swagger;
@@ -24,6 +25,8 @@ app
     .UseRouting()
     .UseFastEndpoints()
     .UseSwaggerGen();
+
+app.MapGrpcService<PersonGrpcService>();
 
 if (app.Environment.IsDevelopment()) { }
 #endregion Use Services

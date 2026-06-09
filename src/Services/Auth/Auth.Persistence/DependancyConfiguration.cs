@@ -1,3 +1,4 @@
+using Auth.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +11,7 @@ public static class DependancyConfiguration
     {
         var connectionString = configuration.GetConnectionString("Default");
         services.AddDbContext<AuthDbContext>(opts => opts.UseSqlServer(connectionString));
+        services.AddScoped<PersonRepository>();
         return services;
     }
 }
