@@ -22,6 +22,7 @@
     <Folder Include="Features/CreateAndAssignAuthor/" />
     <Folder Include="Features/CreateArticle/" />
     <Folder Include="Features/Shared/" />
+    <Folder Include="Features/SubmitArticle/" />
     <Folder Include="Features/UploadFiles/" />
     <Folder Include="Features/UploadFiles/UploadManuscriptFile/" />
   </ItemGroup>

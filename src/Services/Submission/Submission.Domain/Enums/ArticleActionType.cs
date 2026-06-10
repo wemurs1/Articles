@@ -1,12 +1,11 @@
 namespace Submission.Domain.Enums;
 
 public enum ArticleActionType
-{
-    Create,
+{CreateArticle,
     CreateAuthor,
     AssignAuthor,
-    Upload,
-    Submit,
-    Approve,
-    Reject
+    UploadAsset,
+    SubmitDraft,
+    ApproveDraft,
+    RejectDraft,
 }

@@ -2,7 +2,7 @@ namespace Submission.Application.Features.CreateArticle;
 
 public record CreateArticleCommand(int JournalId, string Title, string Scope, ArticleType Type) : ArticleCommand
 {
-    public override ArticleActionType ActionType => ArticleActionType.Create;
+    public override ArticleActionType ActionType => ArticleActionType.CreateArticle;
 };
 
 public class CreateArticleCommandValidator : ArticleCommandValidator<CreateArticleCommand>

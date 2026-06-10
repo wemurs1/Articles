@@ -4,12 +4,26 @@ public enum ContributionArea
 {
     //mandatory
     OriginalDraft = 1,
-    ReviewAndEditing = 2,
+    Revision,
 
     //optional
-    Conceptualisation = 3,
-    FormalAnalysis = 4,
-    Investigation = 5,
-    Methodology = 6,
-    Visualisation = 7
+    Analysis,
+    Investigation,
+    Visualisation
+}
+
+public static class ContributionAreaCategories
+{
+    public static HashSet<ContributionArea> MandatoryAreas =
+    [
+        ContributionArea.OriginalDraft,
+        ContributionArea.Revision
+    ];
+
+    public static HashSet<ContributionArea> OptionalAreas =
+    [
+        ContributionArea.Analysis,
+        ContributionArea.Investigation,
+        ContributionArea.Visualisation
+    ];
 }

@@ -1,19 +1,35 @@
+using Articles.Abstractions;
 using Blocks.Exceptions;
+using Submission.Domain.Enums;
+using Submission.Domain.StateMachines;
 
 namespace Submission.Domain.Entities;
 
 public partial class Article
 {
+    internal Article() { }
+
+    public void SetStage(ArticleStage newStage, IArticleAction<ArticleActionType> action, ArticleStateMachineFactory stateMachineFactory)
+    {
+        stateMachineFactory.ValidateStageTransition(Stage, action.ActionType);
+        if (newStage == Stage) return;
+
+        var currentStage = Stage;
+        Stage = newStage;
+        LastModifiedOn = action.CreatedOn;
+        LastModifiedById = action.CreatedById;
+    }
+
     public void AssignAuthor(Author author, HashSet<ContributionArea> contributionAreas, bool isCorrespondingAuthor)
     {
         var role = isCorrespondingAuthor ? UserRoleType.CORAUT : UserRoleType.AUT;
 
-        if (Actors.Exists(a => a.PersonId == author.Id && a.Role == role))
+        if (_actors.Exists(a => a.PersonId == author.Id && a.Role == role))
         {
-            throw new DomainException($"Author {author.EmailAddress} is alreadt assigned to the article");
+            throw new DomainException($"Author {author.EmailAddress} is already assigned to the article");
         }
 
-        Actors.Add(new ArticleAuthor()
+        _actors.Add(new ArticleAuthor()
         {
             ContributionAreas = contributionAreas,
             Person = author,
@@ -35,5 +51,24 @@ public partial class Article
         _assets.Add(asset);
 
         return asset;
+    }
+
+    public void Submit(IArticleAction<ArticleActionType> action, ArticleStateMachineFactory _stateMachineFactory)
+    {
+        var contributionAreas = _actors.OfType<ArticleAuthor>()
+            .SelectMany(author => author.ContributionAreas)
+            .ToHashSet();
+
+        var missingMandatoryAreas = ContributionAreaCategories.MandatoryAreas
+            .Except(contributionAreas)
+            .ToList();
+
+        if (missingMandatoryAreas.Count > 1)
+            throw new DomainException($"Cannot submit article: Missing mandatory contribution areas: {string.Join(", ", missingMandatoryAreas)}");
+
+        SubmittedById = action.CreatedById;
+        SubmittedOn = action.CreatedOn;
+
+        SetStage(ArticleStage.Submitted, action, _stateMachineFactory);
     }
 }
