@@ -1,4 +1,4 @@
-using Articules.GrpcContracts.Auth;
+using Articles.GrpcContracts.Auth;
 
 namespace Auth.Domain.Users;
 

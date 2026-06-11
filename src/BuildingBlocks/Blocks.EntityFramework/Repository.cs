@@ -7,7 +7,7 @@ public interface IRepository<TEntity> where TEntity : class, IEntity
 {
     Task<TEntity?> FindByIdAsync(int id);
     Task<TEntity?> GetByIdAsync(int id);
-    Task<TEntity> AddAsync(TEntity entity);
+    Task<TEntity> AddAsync(TEntity entity, CancellationToken ct = default);
     TEntity Update(TEntity entity);
     void Remove(TEntity entity);
     Task<bool> DeleteByIdAsync(int id);
@@ -31,10 +31,10 @@ public class Repository<TContext, TEntity> : IRepository<TEntity>
 
     public TContext Context => _dbContext;
 
-    public virtual async Task<TEntity> AddAsync(TEntity entity)
+    public virtual async Task<TEntity> AddAsync(TEntity entity, CancellationToken ct = default)
     {
         _entity.Add(entity);
-        await _dbContext.SaveChangesAsync();
+        await _dbContext.SaveChangesAsync(ct);
         return entity;
     }
 

@@ -71,4 +71,9 @@ public partial class Article
 
         SetStage(ArticleStage.Submitted, action, _stateMachineFactory);
     }
+
+    public void Approve(Person person)
+    {
+        _actors.Add(new ArticleActor { Person = person, Role = UserRoleType.REVED });
+    }
 }

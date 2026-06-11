@@ -8,16 +8,19 @@
 
   <ItemGroup>
     <ProjectReference Include="../../../BuildingBlocks/Articles.Abstractions/Articles.Abstractions.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Articules.GrpcContracts/Articles.GrpcContracts.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.EntityFramework/Blocks.EntityFramework.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.Exceptions/Blocks.Exceptions.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.MediatR/Blocks.MediatR.csproj" />
     <ProjectReference Include="../../../Modules/FileStorage/FileStorage.Contracts/FileStorage.Contracts.csproj" />
+    <ProjectReference Include="../../Auth/Auth.Domain/Auth.Domain.csproj" />
     <ProjectReference Include="../Submission.Domain/Submission.Domain.csproj" />
     <ProjectReference Include="../Submission.Persistence/Submission.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Features/" />
+    <Folder Include="Features/ApproveArticle/" />
     <Folder Include="Features/AssignAuthor/" />
     <Folder Include="Features/CreateAndAssignAuthor/" />
     <Folder Include="Features/CreateArticle/" />

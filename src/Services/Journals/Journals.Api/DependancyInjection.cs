@@ -1,3 +1,4 @@
+using System.IO.Compression;
 using System.Text.Json.Serialization;
 using Articles.Security;
 using Auth.Grpc;
@@ -6,6 +7,8 @@ using Blocks.Core.Extensions;
 using Blocks.Core.Mapster;
 using FastEndpoints;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using ProtoBuf.Grpc.Server;
 
 namespace Journals.Api;
 
@@ -33,6 +36,15 @@ public static class DependancyInjection
             .AddMapster()
             .AddAuthorization();
 
+
+        // server
+        services.AddCodeFirstGrpc(options =>
+        {
+            options.ResponseCompressionLevel = CompressionLevel.Fastest;
+            options.EnableDetailedErrors = true;
+        });
+
+        //client
         var grpcOptions = configuration.GetSectionByTypeName<GrpcServiceOptions>();
         services.AddCodeFirstGrpcClient<IPersonService>(grpcOptions, "Person");
 

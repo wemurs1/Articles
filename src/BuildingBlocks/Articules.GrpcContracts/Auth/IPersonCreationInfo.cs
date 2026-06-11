@@ -1,6 +1,6 @@
 using Articles.Abstractions.Enums;
 
-namespace Articules.GrpcContracts.Auth;
+namespace Articles.GrpcContracts.Auth;
 
 public interface IPersonCreationInfo
 {
