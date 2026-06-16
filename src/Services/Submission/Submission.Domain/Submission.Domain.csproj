@@ -9,13 +9,14 @@
   <ItemGroup>
     <Folder Include="Behaviours/" />
     <Folder Include="Enums/" />
+    <Folder Include="Events/" />
     <Folder Include="StateMachines/" />
     <Folder Include="ValueObjects/" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="../../../BuildingBlocks/Articles.Abstractions/Articles.Abstractions.csproj" />
-    <ProjectReference Include="../../../BuildingBlocks/Articules.GrpcContracts/Articles.GrpcContracts.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Articles.GrpcContracts/Articles.GrpcContracts.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.Core/Blocks.Core.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.Domain/Blocks.Domain.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.Exceptions/Blocks.Exceptions.csproj" />

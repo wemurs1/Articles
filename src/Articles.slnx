@@ -2,13 +2,14 @@
   <Folder Name="/BuildingBlocks/">
     <Project Path="BuildingBlocks/Articles.Abstractions/Articles.Abstractions.csproj" />
     <Project Path="BuildingBlocks/Articles.Security/Articles.Security.csproj" />
-    <Project Path="BuildingBlocks/Articules.GrpcContracts/Articles.GrpcContracts.csproj" />
+    <Project Path="BuildingBlocks/Articles.GrpcContracts/Articles.GrpcContracts.csproj" />
     <Project Path="BuildingBlocks/Blocks.AspNetCore/Blocks.AspNetCore.csproj" />
     <Project Path="BuildingBlocks/Blocks.Core/Blocks.Core.csproj" />
     <Project Path="BuildingBlocks/Blocks.Domain/Blocks.Domain.csproj" />
-    <Project Path="BuildingBlocks/Blocks.EntityFramework/Blocks.EntityFramework.csproj" />
+    <Project Path="BuildingBlocks/Blocks.EntityFramework/Blocks.EntityFrameworkCore.csproj" />
     <Project Path="BuildingBlocks/Blocks.Exceptions/Blocks.Exceptions.csproj" />
     <Project Path="BuildingBlocks/Blocks.MediatR/Blocks.MediatR.csproj" />
+    <Project Path="BuildingBlocks/Blocks.Messaging/Blocks.Messaging.csproj" />
     <Project Path="BuildingBlocks/Blocks.Redis/Blocks.Redis.csproj" />
   </Folder>
   <Folder Name="/Modules/" />
@@ -31,6 +32,12 @@
     <Project Path="Services/Journals/Journals.Api/Journals.Api.csproj" />
     <Project Path="Services/Journals/Journals.Domain/Journals.Domain.csproj" />
     <Project Path="Services/Journals/Journals.Persistence/Journals.Persistence.csproj" />
+  </Folder>
+  <Folder Name="/Services/Review/">
+    <Project Path="Services/Review/Review.API/Review.API.csproj" />
+    <Project Path="Services/Review/Review.Application/Review.Application.csproj" />
+    <Project Path="Services/Review/Review.Domain/Review.Domain.csproj" />
+    <Project Path="Services/Review/Review.Persistence/Review.Persistence.csproj" />
   </Folder>
   <Folder Name="/Services/Submission/">
     <Project Path="Services/Submission/Submission.API/Submission.API.csproj" />

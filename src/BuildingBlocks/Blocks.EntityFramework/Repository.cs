@@ -1,7 +1,7 @@
 using Blocks.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Blocks.EntityFramework;
+namespace Blocks.EntityFrameworkCore;
 
 public interface IRepository<TEntity> where TEntity : class, IEntity
 {
@@ -30,6 +30,7 @@ public class Repository<TContext, TEntity> : IRepository<TEntity>
     }
 
     public TContext Context => _dbContext;
+    public DbSet<TEntity> Entity => _entity;
 
     public virtual async Task<TEntity> AddAsync(TEntity entity, CancellationToken ct = default)
     {

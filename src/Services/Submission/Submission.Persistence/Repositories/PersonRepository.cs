@@ -5,5 +5,5 @@ namespace Submission.Persistence.Repositories;
 
 public class PersonRepository(SubmissionDbContext context, CancellationToken ct = default) : Repository<Person>(context)
 {
-    public async Task<Person?> GetByUserIdAsync(int userId) => await _entity.SingleOrDefaultAsync(x => x.Id == userId, ct);
+    public async Task<Person?> GetByUserIdAsync(int userId) => await Entity.SingleOrDefaultAsync(x => x.Id == userId, ct);
 }

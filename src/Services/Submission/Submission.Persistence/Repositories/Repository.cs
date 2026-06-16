@@ -1,5 +1,5 @@
 using Blocks.Domain.Entities;
-using Blocks.EntityFramework;
+using Blocks.EntityFrameworkCore;
 
 namespace Submission.Persistence.Repositories;
 

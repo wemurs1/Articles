@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../../../BuildingBlocks/Blocks.EntityFramework/Blocks.EntityFramework.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Blocks.EntityFramework/Blocks.EntityFrameworkCore.csproj" />
     <ProjectReference Include="../Submission.Domain/Submission.Domain.csproj" />
   </ItemGroup>
 

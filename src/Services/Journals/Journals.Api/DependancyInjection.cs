@@ -7,7 +7,6 @@ using Blocks.Core.Extensions;
 using Blocks.Core.Mapster;
 using FastEndpoints;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
 using ProtoBuf.Grpc.Server;
 
 namespace Journals.Api;
@@ -33,7 +32,7 @@ public static class DependancyInjection
             .AddEndpointsApiExplorer()
             .AddSwaggerGen()
             .AddJwtAuthentication(configuration)
-            .AddMapster()
+            .AddMapsterConfigsFromCurrentAssembly()
             .AddAuthorization();
 
 

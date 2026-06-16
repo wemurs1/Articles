@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Auth.Domain.Persons;
-using Blocks.EntityFramework;
+using Blocks.EntityFrameworkCore;
 
 namespace Auth.Persistence.Repositories;
 

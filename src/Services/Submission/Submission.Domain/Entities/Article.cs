@@ -1,6 +1,6 @@
 namespace Submission.Domain.Entities;
 
-public partial class Article : AggregateRoot
+public partial class Article : AggregateEntity
 {
     public required string Title { get; set; }
     public required string Scope { get; set; }

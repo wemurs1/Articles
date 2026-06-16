@@ -1,5 +1,8 @@
 using Articles.Abstractions.Enums;
-using Blocks.EntityFramework;
+using Blocks.EntityFrameworkCore;
+using Blocks.EntityFrameworkCore.Interceptors;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Submission.Domain.Entities;
@@ -13,9 +16,12 @@ public static class DependancyInjection
     {
         var connectionString = configuration.GetConnectionString("Database");
 
+        services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
+
         services.AddDbContext<SubmissionDbContext>((provider, options) =>
         {
-
+            options.UseSqlServer(connectionString);
+            options.AddInterceptors(provider.GetServices<ISaveChangesInterceptor>());
         });
 
         services.AddScoped(typeof(Repository<>));

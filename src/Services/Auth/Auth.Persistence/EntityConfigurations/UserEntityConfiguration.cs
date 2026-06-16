@@ -1,5 +1,5 @@
 using Auth.Domain.Users;
-using Blocks.EntityFramework.EntityConfigurations;
+using Blocks.EntityFrameworkCore.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

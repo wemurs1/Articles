@@ -8,10 +8,11 @@
 
   <ItemGroup>
     <ProjectReference Include="../../../BuildingBlocks/Articles.Abstractions/Articles.Abstractions.csproj" />
-    <ProjectReference Include="../../../BuildingBlocks/Articules.GrpcContracts/Articles.GrpcContracts.csproj" />
-    <ProjectReference Include="../../../BuildingBlocks/Blocks.EntityFramework/Blocks.EntityFramework.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Articles.GrpcContracts/Articles.GrpcContracts.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Blocks.EntityFramework/Blocks.EntityFrameworkCore.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.Exceptions/Blocks.Exceptions.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.MediatR/Blocks.MediatR.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Blocks.Messaging/Blocks.Messaging.csproj" />
     <ProjectReference Include="../../../Modules/FileStorage/FileStorage.Contracts/FileStorage.Contracts.csproj" />
     <ProjectReference Include="../../Auth/Auth.Domain/Auth.Domain.csproj" />
     <ProjectReference Include="../Submission.Domain/Submission.Domain.csproj" />

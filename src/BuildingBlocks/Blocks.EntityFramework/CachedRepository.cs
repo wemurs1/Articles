@@ -3,7 +3,7 @@ using Blocks.Core.Cache;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace Blocks.EntityFramework;
+namespace Blocks.EntityFrameworkCore;
 
 public class CachedRepository<TDbContext, TEntity, TId>(TDbContext _dbContext, IMemoryCache _cache)
     where TDbContext : DbContext

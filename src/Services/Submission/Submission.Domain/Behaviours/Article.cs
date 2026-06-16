@@ -1,6 +1,7 @@
 using Articles.Abstractions;
 using Blocks.Exceptions;
 using Submission.Domain.Enums;
+using Submission.Domain.Events;
 using Submission.Domain.StateMachines;
 
 namespace Submission.Domain.Entities;
@@ -16,8 +17,8 @@ public partial class Article
 
         var currentStage = Stage;
         Stage = newStage;
-        LastModifiedOn = action.CreatedOn;
-        LastModifiedById = action.CreatedById;
+        // LastModifiedOn = action.CreatedOn;
+        // LastModifiedById = action.CreatedById;
     }
 
     public void AssignAuthor(Author author, HashSet<ContributionArea> contributionAreas, bool isCorrespondingAuthor)
@@ -75,5 +76,6 @@ public partial class Article
     public void Approve(Person person)
     {
         _actors.Add(new ArticleActor { Person = person, Role = UserRoleType.REVED });
+        AddDomainEvent(new ArticleApproved(this));
     }
 }

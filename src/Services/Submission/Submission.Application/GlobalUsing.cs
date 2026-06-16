@@ -7,7 +7,7 @@ global using System.Text.Json.Serialization;
 global using Articles.Abstractions;
 global using Articles.Abstractions.Enums;
 global using Blocks.Core.FluentValidation;
-global using Blocks.EntityFramework;
+global using Blocks.EntityFrameworkCore;
 
 // Domain
 global using Submission.Domain.Entities;
@@ -19,7 +19,7 @@ global using Submission.Application.Features.Shared;
 // Persistence
 global using Submission.Persistence.Repositories;
 
-global using AssetTypeDefinitionRepository = Blocks.EntityFramework.CachedRepository<
+global using AssetTypeDefinitionRepository = Blocks.EntityFrameworkCore.CachedRepository<
     Submission.Persistence.SubmissionDbContext,
     Submission.Domain.Entities.AssetTypeDefinition,
     Articles.Abstractions.Enums.AssetType>;

@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <Folder Include="Enums/" />
+    <Folder Include="Events/" />
+    <Folder Include="Events/Dtos/" />
   </ItemGroup>
 
   <ItemGroup>
