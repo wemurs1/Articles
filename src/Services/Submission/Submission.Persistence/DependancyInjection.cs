@@ -1,11 +1,7 @@
-using Articles.Abstractions.Enums;
-using Blocks.EntityFrameworkCore;
 using Blocks.EntityFrameworkCore.Interceptors;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Submission.Domain.Entities;
 using Submission.Persistence.Repositories;
 
 namespace Submission.Persistence;

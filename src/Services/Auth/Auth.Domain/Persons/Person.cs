@@ -3,7 +3,7 @@ using Blocks.Domain.Entities;
 
 namespace Auth.Domain.Persons;
 
-public partial class Person : Entity
+public partial class Person : Entity<int>
 {
     public required string FirstName { get; set; }
     public required string LastName { get; set; }

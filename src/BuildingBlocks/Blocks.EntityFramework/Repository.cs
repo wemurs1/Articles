@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blocks.EntityFrameworkCore;
 
-public interface IRepository<TEntity> where TEntity : class, IEntity
+public interface IRepository<TEntity> where TEntity : class, IEntity<int>
 {
     Task<TEntity?> FindByIdAsync(int id);
     Task<TEntity?> GetByIdAsync(int id);
@@ -15,7 +15,7 @@ public interface IRepository<TEntity> where TEntity : class, IEntity
 }
 
 public class Repository<TContext, TEntity> : IRepository<TEntity>
-    where TEntity : class, IEntity
+    where TEntity : class, IEntity<int>
     where TContext : DbContext
 {
     protected readonly TContext _dbContext;

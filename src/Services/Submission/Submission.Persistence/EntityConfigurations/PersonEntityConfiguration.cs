@@ -1,8 +1,3 @@
-using Blocks.EntityFrameworkCore.EntityConfigurations;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Submission.Domain.Entities;
-
 namespace Submission.Persistence.EntityConfigurations;
 
 public class PersonEntityConfiguration : EntityConfiguration<Person>

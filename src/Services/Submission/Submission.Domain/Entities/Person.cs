@@ -1,6 +1,6 @@
 namespace Submission.Domain.Entities;
 
-public partial class Person : Entity
+public partial class Person : Entity<int>
 {
     public required string FirstName { get; init; }
     public required string LastName { get; init; }

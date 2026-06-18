@@ -3,7 +3,7 @@ using Blocks.Domain.Entities;
 
 namespace Auth.Domain.Users;
 
-public partial class User : IdentityUser<int>, IEntity
+public partial class User : IdentityUser<int>, IEntity<int>
 {
     public DateTime RegistrationDate { get; set; } = DateTime.UtcNow;
     public DateTime? LastLogin { get; set; }

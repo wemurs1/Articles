@@ -1,9 +1,3 @@
-using Articles.Abstractions.Enums;
-using Blocks.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Submission.Domain.Entities;
-
 namespace Submission.Persistence.EntityConfigurations;
 
 public class ArticleActorEntityConfiguration : IEntityTypeConfiguration<ArticleActor>

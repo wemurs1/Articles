@@ -1,6 +1,6 @@
 namespace Submission.Domain.Entities;
 
-public partial class Asset : Entity
+public partial class Asset : Entity<int>
 {
     public AssetName Name { get; private set; } = null!;
     public AssetType Type { get; private set; }

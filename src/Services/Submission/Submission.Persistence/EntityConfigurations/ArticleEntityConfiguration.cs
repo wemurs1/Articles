@@ -1,9 +1,3 @@
-using Blocks.EntityFrameworkCore;
-using Blocks.EntityFrameworkCore.EntityConfigurations;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Submission.Domain.Entities;
-
 namespace Submission.Persistence.EntityConfigurations;
 
 internal class ArticleEntityConfiguration : EntityConfiguration<Article>

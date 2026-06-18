@@ -1,6 +1,6 @@
 namespace Submission.Domain.Entities;
 
-public partial class Journal
+public partial class Journal: IEntity<int>
 {
     public Article CreateArticle(string title, ArticleType type, string scope)
     {

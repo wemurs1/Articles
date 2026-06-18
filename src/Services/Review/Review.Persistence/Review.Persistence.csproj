@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="../Review.Domain/Review.Domain.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Blocks.EntityFramework/Blocks.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
 </Project>

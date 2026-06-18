@@ -1,6 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using Submission.Domain.Entities;
-
 namespace Submission.Persistence;
 
 public class SubmissionDbContext(DbContextOptions<SubmissionDbContext> options) : DbContext(options)

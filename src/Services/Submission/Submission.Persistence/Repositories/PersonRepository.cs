@@ -1,9 +1,15 @@
-using Microsoft.EntityFrameworkCore;
-using Submission.Domain.Entities;
-
 namespace Submission.Persistence.Repositories;
 
-public class PersonRepository(SubmissionDbContext context, CancellationToken ct = default) : Repository<Person>(context)
+public class PersonRepository(SubmissionDbContext context, CancellationToken ct = default)
 {
-    public async Task<Person?> GetByUserIdAsync(int userId) => await Entity.SingleOrDefaultAsync(x => x.Id == userId, ct);
+    private readonly SubmissionDbContext _context = context;
+    private readonly CancellationToken _ct = ct;
+
+    public async Task<Person?> GetByUserIdAsync(int userId)
+        => await _context.Set<Person>().SingleOrDefaultAsync(x => x.Id == userId, _ct);
+
+    public async Task AddAsync(Person person, CancellationToken ct = default)
+    {
+        await _context.Set<Person>().AddAsync(person);
+    }
 }

@@ -1,7 +1,3 @@
-using Blocks.Core.Constraints;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
 namespace Submission.Persistence.EntityConfigurations;
 
 public class FileEntityConfiguration

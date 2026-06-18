@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Articles/" />
+    <Folder Include="Assets/Enums/" />
+    <Folder Include="_Shared/" />
+    <Folder Include="_Shared/ValueObjects/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../../BuildingBlocks/Articles.Abstractions/Articles.Abstractions.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Blocks.Domain/Blocks.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

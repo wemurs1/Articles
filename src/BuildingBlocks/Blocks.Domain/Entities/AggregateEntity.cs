@@ -1,6 +1,6 @@
 namespace Blocks.Domain.Entities;
 
-public interface IAggregateEntity : IEntity
+public interface IAggregateEntity : IEntity<int>
 {
     IReadOnlyList<IDomainEvent> DomainEvents { get; }
 
