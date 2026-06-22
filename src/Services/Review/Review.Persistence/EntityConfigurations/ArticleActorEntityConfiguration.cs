@@ -1,5 +1,3 @@
-using Articles.Abstractions.Enums;
-
 namespace Review.Persistence.EntityConfigurations;
 
 public class ArticleActorEntityConfiguration : IEntityTypeConfiguration<ArticleActor>

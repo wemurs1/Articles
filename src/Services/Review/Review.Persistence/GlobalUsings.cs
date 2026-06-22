@@ -5,6 +5,7 @@ global using Microsoft.EntityFrameworkCore.Metadata.Builders;
 // Internal libraries
 global using Blocks.EntityFrameworkCore;
 global using Blocks.EntityFrameworkCore.EntityConfigurations;
+global using Articles.Abstractions.Enums;
 
 // Domain
 global using Review.Domain.Articles;

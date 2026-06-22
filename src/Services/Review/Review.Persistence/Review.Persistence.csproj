@@ -11,4 +11,8 @@
     <ProjectReference Include="../../../BuildingBlocks/Blocks.EntityFramework/Blocks.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories/" />
+  </ItemGroup>
+
 </Project>

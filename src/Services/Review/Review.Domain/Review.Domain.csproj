@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <Folder Include="Articles/" />
+    <Folder Include="Articles/Behaviours/" />
+    <Folder Include="Assets/Behaviours/" />
     <Folder Include="Assets/Enums/" />
     <Folder Include="_Shared/" />
     <Folder Include="_Shared/ValueObjects/" />

@@ -2,7 +2,7 @@ using Blocks.Domain.ValueObjects;
 
 namespace Review.Domain.Assets.ValueObjects;
 
-public class File : IValueObject
+public partial class File : IValueObject
 {
     public required string OriginalFileName { get; init; } = default!;
     public required string FileServerId { get; init; } = default!;

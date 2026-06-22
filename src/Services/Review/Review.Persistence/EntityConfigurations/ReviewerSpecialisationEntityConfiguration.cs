@@ -1,5 +1,3 @@
-using System.Text.Json;
-
 namespace Review.Persistence.EntityConfigurations;
 
 public class ReviewerSpecialisationEntityConfiguration : IEntityTypeConfiguration<ReviewerSpecialisation>

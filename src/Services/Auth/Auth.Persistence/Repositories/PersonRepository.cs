@@ -4,7 +4,7 @@ using Blocks.EntityFrameworkCore;
 
 namespace Auth.Persistence.Repositories;
 
-public class PersonRepository(AuthDbContext dbContext) : Repository<AuthDbContext, Person>(dbContext)
+public class PersonRepository(AuthDbContext dbContext) : RepositoryBase<AuthDbContext, Person>(dbContext)
 {
     public async Task<Person?> GetByUserIdAsync(int userId, CancellationToken ct = default)
         => await Query().SingleOrDefaultAsync(e => e.UserId == userId, ct);

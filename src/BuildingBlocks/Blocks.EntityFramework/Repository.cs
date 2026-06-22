@@ -14,7 +14,7 @@ public interface IRepository<TEntity> where TEntity : class, IEntity<int>
     Task<int> SaveChangesAsync(CancellationToken ct);
 }
 
-public class Repository<TContext, TEntity> : IRepository<TEntity>
+public class RepositoryBase<TContext, TEntity> : IRepository<TEntity>
     where TEntity : class, IEntity<int>
     where TContext : DbContext
 {
@@ -22,7 +22,7 @@ public class Repository<TContext, TEntity> : IRepository<TEntity>
     protected readonly DbSet<TEntity> _entity;
     protected string tableName;
 
-    public Repository(TContext dbContext)
+    public RepositoryBase(TContext dbContext)
     {
         _dbContext = dbContext;
         _entity = _dbContext.Set<TEntity>();
