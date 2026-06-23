@@ -19,9 +19,9 @@ public partial class Asset
 
     public string GenerateStorageFilePath(string fileName) => $"Articles/{ArticleId}/{Name}{fileName}";
 
-    public File CreateFile(UploadFileResponse uploadResponse, AssetTypeDefinition assetType)
+    public File CreateFile(FileMetadata fileMetadata, AssetTypeDefinition assetType)
     {
-        File = File.CreateFile(uploadResponse, this, assetType);
+        File = File.CreateFile(fileMetadata, this, assetType);
         return File;
     }
 }

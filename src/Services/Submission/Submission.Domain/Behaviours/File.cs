@@ -6,17 +6,17 @@ public partial class File
 {
     private File() { }
 
-    internal static File CreateFile(UploadFileResponse uploadResponse, Asset asset, AssetTypeDefinition assetType)
+    internal static File CreateFile(FileMetadata fileMetadata, Asset asset, AssetTypeDefinition assetType)
     {
-        var fileName = Path.GetFileName(uploadResponse.FilePath);
+        var fileName = Path.GetFileName(fileMetadata.StoragePath);
         var extension = FileExtension.FromFileName(fileName, assetType);
         var file = new File()
         {
             Name = FileName.Create(asset, extension),
             Extension = extension,
             OriginalName = fileName,
-            Size = uploadResponse.FileSize,
-            FileServerId = uploadResponse.FileId
+            Size = fileMetadata.FileSize,
+            FileServerId = fileMetadata.FileId
         };
 
         return file;

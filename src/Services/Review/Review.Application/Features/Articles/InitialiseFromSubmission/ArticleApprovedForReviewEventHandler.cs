@@ -1,3 +1,5 @@
+using FileStorage.Contracts;
+using Review.Application.FileStorage;
 using Review.Persistence;
 
 namespace Review.Application.Features.Articles.InitialiseFromSubmission;
@@ -7,7 +9,9 @@ public class ArticleApprovedForReviewEventHandler(
     ArticleRepository _articleRepository,
     Repository<Journal> _journalRepository,
     Repository<Person> _personRepository,
-    AssetTypeDefinitionRepository _assetTypeDefinitionRepository)
+    AssetTypeDefinitionRepository _assetTypeDefinitionRepository,
+    IFileService _fileService,
+    FileServiceFactory _fileServiceFactory)
     : IConsumer<ArticleApprovedForReviewEvent>
 {
     public async Task Consume(ConsumeContext<ArticleApprovedForReviewEvent> context)
@@ -34,6 +38,12 @@ public class ArticleApprovedForReviewEventHandler(
             var asset = Asset.CreateFromSubmission(assetDto, assetTypeDefinition, articleDto.Id);
 
             // todo - download the files from submission and upload to review
+            var submissionFileService = _fileServiceFactory(FileStorageType.Submission);
+            var (fileStream, fileMetaData) = await submissionFileService.DownloadFileAsync(assetDto.File.FileServerId);
+            var uploadRequest = new FileUploadRequest(fileMetaData.StoragePath, fileMetaData.FileName, fileMetaData.ContentType, fileMetaData.FileSize);
+            fileMetaData = await _fileService.UploadFileAsync(uploadRequest, fileStream);
+
+            asset.CreateFile(fileMetaData, assetTypeDefinition);
 
             assets.Add(asset);
         }
