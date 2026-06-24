@@ -1,7 +1,9 @@
+using System.Data.Common;
 using Blocks.Core.Extensions;
 using FileStorage.Contracts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using MongoDB.Driver.GridFS;
 
@@ -9,7 +11,7 @@ namespace FileStorage.MongoGridFS;
 
 public static class FileStorageRegistration
 {
-    public static IServiceCollection AddMongoFileStorage(this IServiceCollection services, IConfiguration config)
+    public static IServiceCollection AddMongoFileStorageAsSingleton(this IServiceCollection services, IConfiguration config)
     {
         services.AddAndValidateOptions<MongoGridFsFileStorageOptions>(config);
         var options = config.GetSectionByTypeName<MongoGridFsFileStorageOptions>();
@@ -41,4 +43,28 @@ public static class FileStorageRegistration
 
         return services;
     }
+
+    public static IServiceCollection AddMongoFileStorageAsScoped<TOptions>(this IServiceCollection services, IConfiguration configuration)
+        where TOptions : MongoGridFsFileStorageOptions
+    {
+        services.AddAndValidateOptions<TOptions>(configuration);
+        services.AddScoped<IFileService<TOptions>>(sp =>
+        {
+            var options = sp.GetRequiredService<IOptions<TOptions>>();
+            var optValue = options.Value;
+            var client = new MongoClient(configuration.GetConnectionStringOrThrow(optValue.ConnectionStringName));
+            var db = client.GetDatabase(optValue.DatabaseName);
+            var bucket = new GridFSBucket(db, new GridFSBucketOptions
+            {
+                BucketName = optValue.BucketName,
+                ChunkSizeBytes = optValue.ChunkSizeBytes,
+                WriteConcern = WriteConcern.WMajority,
+                ReadPreference = ReadPreference.Primary
+            });
+            return new FileService<TOptions>(bucket, options);
+        });
+
+        return services;
+    }
+
 }

@@ -7,12 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="../../../BuildingBlocks/Articles.GrpcContracts/Articles.GrpcContracts.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Articles.Security/Articles.Security.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Blocks.AspNetCore/Blocks.AspNetCore.csproj" />
+    <ProjectReference Include="../../../Modules/EmailService/EmailService.Smtp/EmailService.Smtp.csproj" />
     <ProjectReference Include="../../../Modules/FileStorage/FileStorage.MongoGridFS/FileStorage.MongoGridFS.csproj" />
     <ProjectReference Include="../Review.Application/Review.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="FileStorage/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Carter" Version="10.0.0" />
   </ItemGroup>
 
 </Project>
