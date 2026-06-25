@@ -1,11 +1,12 @@
 using Articles.Abstractions.Enums;
 using Blocks.Domain.Entities;
 using Review.Domain.Assets;
+using Review.Domain.Invitations;
 using Review.Domain.Shared;
 
 namespace Review.Domain.Articles;
 
-public partial class Article : AggregateEntity
+public partial class Article : AggregateRoot
 {
     public required string Title { get; init; }
     public ArticleType Type { get; init; }
@@ -25,4 +26,6 @@ public partial class Article : AggregateEntity
 
     private readonly List<Asset> _assets = [];
     public IReadOnlyList<Asset> Assets => _assets.AsReadOnly();
+    private readonly List<ReviewInvitation> _invitations = [];
+    public IReadOnlyList<ReviewInvitation> Invitations => _invitations;
 }

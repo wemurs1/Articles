@@ -1,4 +1,3 @@
-using Articles.Abstractions.Events.Dtos;
 using FileStorage.Contracts;
 
 namespace Review.Domain.Assets.ValueObjects;

@@ -10,6 +10,7 @@
     <Folder Include="Constraints/" />
     <Folder Include="Extensions/" />
     <Folder Include="Mapster/" />
+    <Folder Include="Security/" />
   </ItemGroup>
 
   <ItemGroup>

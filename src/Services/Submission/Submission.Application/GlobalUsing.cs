@@ -1,7 +1,6 @@
 // Third party libraries
 global using MediatR;
 global using FluentValidation;
-global using System.Text.Json.Serialization;
 
 // Internal libraries
 global using Articles.Abstractions;

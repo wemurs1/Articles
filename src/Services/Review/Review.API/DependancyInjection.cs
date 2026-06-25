@@ -5,10 +5,12 @@ using Blocks.AspNetCore.Grpc;
 using Blocks.Core.Extensions;
 using Blocks.Messaging;
 using Carter;
+using EmailService.Contracts;
 using EmailService.Smtp;
 using FileStorage.MongoGridFS;
 using Microsoft.AspNetCore.Http.Json;
 using Review.API.FileStorage;
+using Review.Application.Options;
 
 namespace Review.API;
 
@@ -17,6 +19,8 @@ public static class DependancyInjection
     public static IServiceCollection ConfigureApiOptions(this IServiceCollection services, IConfiguration configuration)
     {
         services
+            .AddAndValidateOptions<AppUrlsOptions>(configuration)
+            .AddAndValidateOptions<EmailOptions>(configuration)
             .AddAndValidateOptions<RabbitMqOptions>(configuration)
             .Configure<JsonOptions>(opt =>
             {

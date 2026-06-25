@@ -9,14 +9,20 @@
   <ItemGroup>
     <Folder Include="Articles/" />
     <Folder Include="Articles/Behaviours/" />
+    <Folder Include="Articles/Events/" />
     <Folder Include="Assets/Behaviours/" />
     <Folder Include="Assets/Enums/" />
+    <Folder Include="Invitations/" />
+    <Folder Include="Invitations/Enums/" />
+    <Folder Include="Invitations/ValueObjects/" />
     <Folder Include="_Shared/" />
+    <Folder Include="_Shared/Enums/" />
     <Folder Include="_Shared/ValueObjects/" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="../../../BuildingBlocks/Articles.Abstractions/Articles.Abstractions.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Articles.GrpcContracts/Articles.GrpcContracts.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.Domain/Blocks.Domain.csproj" />
     <ProjectReference Include="../../../Modules/FileStorage/FileStorage.Contracts/FileStorage.Contracts.csproj" />
   </ItemGroup>

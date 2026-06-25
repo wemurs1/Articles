@@ -1,6 +1,10 @@
+using Articles.Abstractions;
+using Blocks.Core.FluentValidation;
 using Blocks.MediatR;
+using FluentValidation;
+using Review.Domain.Shared.Enums;
 
-namespace Submission.Application.Features.Shared;
+namespace Review.Application.Features.Shared;
 
 public abstract record ArticleCommand<TActionType, TResponse> : ArticleCommandBase<TActionType>, ICommand<TResponse> where TActionType : Enum { }
 

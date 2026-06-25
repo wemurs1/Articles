@@ -1,4 +1,3 @@
-using System.Text.Json.Serialization;
 using Articles.GrpcContracts.Journals;
 using Auth.Grpc;
 using Blocks.AspNetCore.Grpc;
@@ -6,6 +5,7 @@ using Blocks.Core.Extensions;
 using Blocks.Messaging;
 using FileStorage.MongoGridFS;
 using Microsoft.AspNetCore.Http.Json;
+using System.Text.Json.Serialization;
 
 namespace Submission.API;
 
@@ -32,7 +32,7 @@ public static class DependancyInjection
             .AddEndpointsApiExplorer()
             .AddSwaggerGen();
 
-        services.AddMongoFileStorage(configuration);
+        services.AddMongoFileStorageAsSingleton(configuration);
 
         var grpcOptions = configuration.GetSectionByTypeName<GrpcServiceOptions>();
         services.AddCodeFirstGrpcClient<IPersonService>(grpcOptions, "Person");

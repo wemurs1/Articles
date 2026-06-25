@@ -16,6 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Endpoints/" />
+    <Folder Include="Endpoints/Invitations/" />
     <Folder Include="FileStorage/" />
   </ItemGroup>
 
