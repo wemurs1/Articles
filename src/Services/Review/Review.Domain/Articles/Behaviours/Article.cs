@@ -1,10 +1,12 @@
 using Articles.Abstractions;
+using Articles.Abstractions.Enums;
 using Articles.Abstractions.Events.Dtos;
 using Blocks.Exceptions;
 using Review.Domain.Articles.Events;
 using Review.Domain.Assets;
 using Review.Domain.Invitations;
 using Review.Domain.Invitations.ValueObjects;
+using Review.Domain.Reviewers;
 
 namespace Review.Domain.Articles;
 
@@ -62,5 +64,17 @@ public partial class Article
         AddDomainEvent(new ReviewerInvited(this, invitation));
         _invitations.Add(invitation);
         return invitation;
+    }
+
+    public void AssignReviewer(Reviewer reviewer, IArticleAction action)
+    {
+        if (_actors.Exists(a => a.PersonId == reviewer.Id && a.Role == UserRoleType.REV))
+            throw new DomainException($"Reviewer {reviewer.Email} is already assigned to the article");
+
+        reviewer.AddSpecialisation(new ReviewerSpecialisation { JournalId = this.JournalId, ReviewerId = reviewer.Id });
+
+        _actors.Add(new ArticleActor { PersonId = reviewer.Id, Role = UserRoleType.REV });
+
+        AddDomainEvent(new ReviewerAssigned(this, reviewer, action));
     }
 }

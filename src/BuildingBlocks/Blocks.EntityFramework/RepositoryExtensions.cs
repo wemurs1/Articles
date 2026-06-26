@@ -1,3 +1,5 @@
+using System.Linq.Expressions;
+using Blocks.Core;
 using Blocks.Domain.Entities;
 using Blocks.Exceptions;
 using Microsoft.EntityFrameworkCore;
@@ -28,4 +30,7 @@ public static class RepositoryExtensions
         var entity = await repository.GetByIdAsync(id) ?? throw new NotFoundException($"{typeof(TEntity).Name} not found");
         return entity;
     }
+
+    public static async Task<TEntity> SingleOrThowASync<TEntity>(this IQueryable<TEntity> source, Expression<Func<TEntity, bool>> predicate, CancellationToken ct)
+        where TEntity : class, IEntity<int> => Guard.NotFound(await source.SingleOrDefaultAsync(predicate, ct));
 }

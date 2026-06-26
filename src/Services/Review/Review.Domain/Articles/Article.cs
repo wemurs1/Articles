@@ -24,6 +24,8 @@ public partial class Article : AggregateRoot
     private readonly List<ArticleActor> _actors = [];
     public IReadOnlyList<ArticleActor> Actors => _actors.AsReadOnly();
 
+    public Editor Editor => (Editor)_actors.Single(a => a.Role == UserRoleType.REVED).Person;
+
     private readonly List<Asset> _assets = [];
     public IReadOnlyList<Asset> Assets => _assets.AsReadOnly();
     private readonly List<ReviewInvitation> _invitations = [];

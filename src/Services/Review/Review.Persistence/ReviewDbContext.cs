@@ -1,5 +1,6 @@
 using Review.Domain.Assets;
 using Review.Domain.Invitations;
+using Review.Domain.Reviewers;
 
 namespace Review.Persistence;
 

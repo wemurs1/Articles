@@ -12,9 +12,12 @@
     <Folder Include="Articles/Events/" />
     <Folder Include="Assets/Behaviours/" />
     <Folder Include="Assets/Enums/" />
-    <Folder Include="Invitations/" />
+    <Folder Include="Invitations/Behaviours/" />
     <Folder Include="Invitations/Enums/" />
     <Folder Include="Invitations/ValueObjects/" />
+    <Folder Include="Reviewers/" />
+    <Folder Include="Reviewers/Behaviours/" />
+    <Folder Include="Reviewers/Events/" />
     <Folder Include="_Shared/" />
     <Folder Include="_Shared/Enums/" />
     <Folder Include="_Shared/ValueObjects/" />
