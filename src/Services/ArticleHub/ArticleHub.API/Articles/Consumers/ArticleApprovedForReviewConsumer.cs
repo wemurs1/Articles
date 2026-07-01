@@ -1,7 +1,7 @@
 using ArticleHub.Domain.Articles;
 using ArticleHub.Persistence;
-using Articles.Abstractions.Events;
-using Articles.Abstractions.Events.Dtos;
+using Articles.IntegrationEvents.Contracts.Dtos;
+using Articles.IntegrationEvents.Contracts;
 using Blocks.Exceptions;
 using Blocks.Mapster;
 using Mapster;
@@ -16,7 +16,8 @@ public class ArticleApprovedForReviewConsumer(ArticleHubDbContext _dbContext) : 
     {
         var articleDto = context.Message.Article;
 
-        if (await _dbContext.Articles.AnyAsync(a => a.Id == articleDto.Id, context.CancellationToken)) throw new BadRequestException("Article was already approved for review");
+        if (await _dbContext.Articles.AnyAsync(a => a.Id == articleDto.Id, context.CancellationToken)) 
+            throw new BadRequestException("Article was already approved for review");
 
         var journal = await GetOrCreateJournalAsync(articleDto, context.CancellationToken);
 

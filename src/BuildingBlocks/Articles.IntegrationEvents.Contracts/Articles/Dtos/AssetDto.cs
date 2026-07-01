@@ -1,6 +1,6 @@
 using Articles.Abstractions.Enums;
 
-namespace Articles.Abstractions.Events.Dtos;
+namespace Articles.IntegrationEvents.Contracts.Dtos;
 
 public record AssetDto(int Id, string Name, AssetType Type, FileDto File);
 

@@ -1,5 +1,3 @@
-using Blocks.Domain;
-
 namespace Articles.Abstractions;
 
 public interface IArticleAction : IAuditableAction

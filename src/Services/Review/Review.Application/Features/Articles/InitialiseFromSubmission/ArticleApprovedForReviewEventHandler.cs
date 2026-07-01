@@ -1,3 +1,5 @@
+using Articles.IntegrationEvents.Contracts;
+using Articles.IntegrationEvents.Contracts.Dtos;
 using FileStorage.Contracts;
 using Review.Application.FileStorage;
 using Review.Persistence;

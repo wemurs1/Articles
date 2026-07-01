@@ -36,6 +36,7 @@ public class AcceptInvitationCommandHandler(
             if (reviewer is null)
             {
                 // todo - implement CreateUser gRPC
+                reviewer = null!;
             }
         }
 

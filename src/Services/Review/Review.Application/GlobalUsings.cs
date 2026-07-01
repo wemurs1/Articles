@@ -4,8 +4,8 @@ global using MassTransit;
 
 // Internal libraries
 global using Articles.Abstractions.Enums;
-global using Articles.Abstractions.Events;
-global using Articles.Abstractions.Events.Dtos;
+global using Articles.IntegrationEvents.Contracts;
+global using Articles.IntegrationEvents.Contracts.Dtos;
 global using Blocks.Exceptions;
 
 // Domain
