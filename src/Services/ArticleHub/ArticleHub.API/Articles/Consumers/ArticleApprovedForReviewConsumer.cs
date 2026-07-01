@@ -26,7 +26,7 @@ public class ArticleApprovedForReviewConsumer(ArticleHubDbContext _dbContext) : 
             article.SubmittedById = articleDto.SubmittedBy.Id;
         });
 
-        await CreateActorsAsync(article, context.CancellationToken);
+        await CreateActorsAsync(articleDto, article, context.CancellationToken);
 
         _dbContext.Articles.Add(article);
 
@@ -45,9 +45,9 @@ public class ArticleApprovedForReviewConsumer(ArticleHubDbContext _dbContext) : 
         return journal;
     }
 
-    private async Task CreateActorsAsync(Article article, CancellationToken ct = default)
+    private async Task CreateActorsAsync(ArticleDto articleDto, Article article, CancellationToken ct = default)
     {
-        foreach (var actorDto in article.Actors)
+        foreach (var actorDto in articleDto.Actors)
         {
             var person = await _dbContext.Persons.SingleOrDefaultAsync(p => p.Id == actorDto.Person.Id, ct);
             if (person == null)
