@@ -1,0 +1,67 @@
+using ArticleHub.Domain.Articles;
+using ArticleHub.Persistence;
+using Articles.Abstractions.Events;
+using Articles.Abstractions.Events.Dtos;
+using Blocks.Exceptions;
+using Blocks.Mapster;
+using Mapster;
+using MassTransit;
+using Microsoft.EntityFrameworkCore;
+
+namespace ArticleHub.API.Articles.Consumers;
+
+public class ArticleApprovedForReviewConsumer(ArticleHubDbContext _dbContext) : IConsumer<ArticleApprovedForReviewEvent>
+{
+    public async Task Consume(ConsumeContext<ArticleApprovedForReviewEvent> context)
+    {
+        var articleDto = context.Message.Article;
+
+        if (await _dbContext.Articles.AnyAsync(a => a.Id == articleDto.Id, context.CancellationToken)) throw new BadRequestException("Article was already approved for review");
+
+        var journal = await GetOrCreateJournalAsync(articleDto, context.CancellationToken);
+
+        var article = articleDto.AdaptWith<Article>(article =>
+        {
+            article.Journal = journal;
+            article.SubmittedById = articleDto.SubmittedBy.Id;
+        });
+
+        await CreateActorsAsync(article, context.CancellationToken);
+
+        _dbContext.Articles.Add(article);
+
+        await _dbContext.SaveChangesAsync(context.CancellationToken);
+    }
+
+    private async Task<Journal> GetOrCreateJournalAsync(ArticleDto articleDto, CancellationToken ct = default)
+    {
+        var journal = await _dbContext.Journals.SingleOrDefaultAsync(j => j.Id == articleDto.Journal.Id, ct);
+        if (journal == null)
+        {
+            journal = articleDto.Journal.Adapt<Journal>();
+            _dbContext.Journals.Add(journal);
+        }
+
+        return journal;
+    }
+
+    private async Task CreateActorsAsync(Article article, CancellationToken ct = default)
+    {
+        foreach (var actorDto in article.Actors)
+        {
+            var person = await _dbContext.Persons.SingleOrDefaultAsync(p => p.Id == actorDto.Person.Id, ct);
+            if (person == null)
+            {
+                person = actorDto.Person.Adapt<Person>();
+                _dbContext.Persons.Add(person);
+            }
+
+            article.Actors.Add(new ArticleActor
+            {
+                ArticleId = article.Id,
+                PersonId = person.Id,
+                Role = actorDto.Role
+            });
+        }
+    }
+}
