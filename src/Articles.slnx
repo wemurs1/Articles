@@ -12,6 +12,7 @@
     <Project Path="BuildingBlocks/Blocks.MediatR/Blocks.MediatR.csproj" />
     <Project Path="BuildingBlocks/Blocks.Messaging/Blocks.Messaging.csproj" />
     <Project Path="BuildingBlocks/Blocks.Redis/Blocks.Redis.csproj" />
+    <Project Path="BuildingBlocks/Blocks.Stubs/Blocks.Stubs.csproj" />
   </Folder>
   <Folder Name="/Modules/" />
   <Folder Name="/Modules/EmailService/">

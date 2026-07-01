@@ -3,5 +3,7 @@ namespace Articles.Abstractions.Enums;
 public enum ArticleStage
 {
     Created,
-    Submitted
+    Submitted,
+    Accepted,
+    Rejected
 }

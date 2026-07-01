@@ -2,6 +2,7 @@ using Articles.Abstractions;
 using Articles.Abstractions.Enums;
 using Articles.IntegrationEvents.Contracts.Dtos;
 using Blocks.Exceptions;
+using Blocks.Stubs;
 using Review.Domain.Articles.Events;
 using Review.Domain.Assets;
 using Review.Domain.Invitations;
@@ -66,6 +67,18 @@ public partial class Article
         return invitation;
     }
 
+    public void Accept(ArticleStateMachineFactory _stateMachineFactory, IArticleAction action)
+    {
+        SetStage(ArticleStage.Accepted);
+        AddDomainEvent(new ArticleAccepted(this, action));
+    }
+
+    public void Reject(ArticleStateMachineFactory _stateMachineFactory, IArticleAction action)
+    {
+        SetStage(ArticleStage.Rejected);
+        AddDomainEvent(new ArticleRejected(this, action));
+    }
+
     public void AssignReviewer(Reviewer reviewer, IArticleAction action)
     {
         if (_actors.Exists(a => a.PersonId == reviewer.Id && a.Role == UserRoleType.REV))
@@ -77,4 +90,12 @@ public partial class Article
 
         AddDomainEvent(new ReviewerAssigned(this, reviewer, action));
     }
+
+
+    // TODO - These are stub methods. Replace with real implementations
+    private void SetStage(ArticleStage stage)
+    {
+        throw new NotImplementedException();
+    }
+
 }

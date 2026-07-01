@@ -18,8 +18,13 @@
 
   <ItemGroup>
     <Folder Include="Features/Articles/" />
+    <Folder Include="Features/Articles/AcceptArticle/" />
+    <Folder Include="Features/Articles/AssignEditor/" />
+    <Folder Include="Features/Articles/GetArticle/" />
     <Folder Include="Features/Articles/InitialiseFromSubmission/" />
+    <Folder Include="Features/Articles/_Shared/" />
     <Folder Include="Features/Invitations/InviteReviewer/" />
+    <Folder Include="Features/RejectArticle/" />
     <Folder Include="Features/_Shared/" />
     <Folder Include="FileStorage/" />
     <Folder Include="Options/" />
