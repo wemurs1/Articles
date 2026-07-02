@@ -1,6 +1,37 @@
+using ArticleHub.API;
+using ArticleHub.Persistence;
+// using Blocks.AspNetCore.Middleware;
+using Carter;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services
+    .ConfigureOptions(builder.Configuration);
+
+builder.Services
+    .AddApiAndApplicationServices(builder.Configuration)
+    .AddPersistenceServices(builder.Configuration);
+
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app
+    .UseSwagger()
+    .UseSwaggerUI()
+    .UseRouting()
+    .UseAuthentication()
+    .UseAuthorization();
+    // .UseMiddleware<GlobalExceptionMiddleware>()
+    // .UseMiddleware<RequestContextMiddleware>()
+    // .UseMiddleware<ResponseTimingMiddleware>();
+
+var api = app.MapGroup("/api");
+api.MapCarter();
+
+// app.Migrate<ArticleHubDbContext>();
+
+if (app.Environment.IsDevelopment())
+{
+    // app.SeedTestData();
+}
 
 app.Run();
