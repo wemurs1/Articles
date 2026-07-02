@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Constraints/" />
     <Folder Include="Extensions/" />
+    <Folder Include="GraphQl/" />
     <Folder Include="Mapster/" />
     <Folder Include="Security/" />
   </ItemGroup>

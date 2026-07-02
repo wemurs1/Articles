@@ -14,4 +14,12 @@
     <ProjectReference Include="../ArticleHub.Persistence/ArticleHub.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Articles/SearchArticles/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Carter" Version="10.0.0" />
+  </ItemGroup>
+
 </Project>
