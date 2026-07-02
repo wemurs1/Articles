@@ -21,4 +21,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../Blocks.Domain/Blocks.Domain.csproj" />
+    <ProjectReference Include="../Blocks.Exceptions/Blocks.Exceptions.csproj" />
+  </ItemGroup>
+
 </Project>
