@@ -41,6 +41,7 @@ public static class DependancyInjection
         {
             options.ResponseCompressionLevel = CompressionLevel.Fastest;
             options.EnableDetailedErrors = true;
+            options.Interceptors.Add<AssignUserIdInterceptor>();
         });
 
         //client
