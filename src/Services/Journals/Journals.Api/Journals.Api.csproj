@@ -13,6 +13,7 @@
     <ProjectReference Include="../../../BuildingBlocks/Blocks.AspNetCore/Blocks.AspNetCore.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.Core/Blocks.Core.csproj" />
     <ProjectReference Include="../../../BuildingBlocks/Blocks.Exceptions/Blocks.Exceptions.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/Blocks.FastEndpoints/Blocks.FastEndpoints.csproj" />
     <ProjectReference Include="../Journals.Domain/Journals.Domain.csproj" />
     <ProjectReference Include="../Journals.Persistence/Journals.Persistence.csproj" />
   </ItemGroup>
@@ -24,8 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FastEndpoints" Version="8.1.0" />
-    <PackageReference Include="FastEndpoints.Swagger" Version="8.1.0" />
+    <PackageReference Include="FastEndpoints.Swagger" Version="8.2.0" />
     <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.2.2" />
   </ItemGroup>
 

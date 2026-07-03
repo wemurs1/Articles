@@ -1,3 +1,4 @@
+using Blocks.FastEndpoints;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Journals.Api;
@@ -21,7 +22,13 @@ app
     .UseSwagger()
     .UseSwaggerUI()
     .UseRouting()
-    .UseFastEndpoints()
+    .UseFastEndpoints(config =>
+    {
+        config.Endpoints.Configurator = endpointDefintion =>
+        {
+            endpointDefintion.PreProcessor<AssignUserIdPreProcessor>(Order.Before);
+        };
+    })
     .UseSwaggerGen();
 
 if (app.Environment.IsDevelopment()) { }

@@ -9,6 +9,7 @@
     <Project Path="BuildingBlocks/Blocks.Domain/Blocks.Domain.csproj" />
     <Project Path="BuildingBlocks/Blocks.EntityFramework/Blocks.EntityFrameworkCore.csproj" />
     <Project Path="BuildingBlocks/Blocks.Exceptions/Blocks.Exceptions.csproj" />
+    <Project Path="BuildingBlocks/Blocks.FastEndpoints/Blocks.FastEndpoints.csproj" />
     <Project Path="BuildingBlocks/Blocks.MediatR/Blocks.MediatR.csproj" />
     <Project Path="BuildingBlocks/Blocks.Messaging/Blocks.Messaging.csproj" />
     <Project Path="BuildingBlocks/Blocks.Redis/Blocks.Redis.csproj" />
