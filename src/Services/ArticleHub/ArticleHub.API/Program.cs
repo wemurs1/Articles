@@ -1,5 +1,7 @@
 using ArticleHub.API;
 using ArticleHub.Persistence;
+using Blocks.AspNetCore.Filters;
+
 // using Blocks.AspNetCore.Middleware;
 using Carter;
 
@@ -24,7 +26,7 @@ app
     // .UseMiddleware<RequestContextMiddleware>()
     // .UseMiddleware<ResponseTimingMiddleware>();
 
-var api = app.MapGroup("/api");
+var api = app.MapGroup("/api").AddEndpointFilter<AssignUserIdFilter>();
 api.MapCarter();
 
 // app.Migrate<ArticleHubDbContext>();

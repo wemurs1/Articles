@@ -1,4 +1,5 @@
 using Blocks.AspNetCore;
+using Blocks.AspNetCore.Filters;
 using Submission.API;
 using Submission.API.Endpoints;
 using Submission.Application;
@@ -23,6 +24,7 @@ app
     .UseMiddleware<GlobalExceptionMiddleware>();
 
 app.MapAllEndpoints();
+app.MapGroup("/api").AddEndpointFilter<AssignUserIdFilter>();
 
 if (app.Environment.IsDevelopment()) { }
 #endregion Use Services

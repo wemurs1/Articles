@@ -35,8 +35,7 @@ public static class StringExtensions
 
     public static int? ToInt(this string input)
     {
-        int i;
-        if (int.TryParse(input, out i)) return i;
+        if (int.TryParse(input, out int i)) return i;
         return null;
     }
 }
