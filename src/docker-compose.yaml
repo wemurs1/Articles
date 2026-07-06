@@ -1,0 +1,19 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+
+services:
+  authapi:
+    image: ${DOCKER_REGISTRY-}authapi
+    depends_on:
+      - sqlserver
+    build:
+      context: .
+      dockerfile: Services/Auth/Auth.API/Dockerfile
+
+  journals-api:
+    image: ${DOCKER_REGISTRY-}journals-api
+    build:
+      context: .
+      dockerfile: Services/Journals/Journals.Api/Dockerfile
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server
